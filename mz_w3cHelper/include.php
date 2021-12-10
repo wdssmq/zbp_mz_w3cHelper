@@ -137,8 +137,10 @@ function mz_w3cHelper_ArticleInfo($article, &$arrMap)
     $arrMap["article"] = $article->Url;
     $category = $article->Category;
     $arrMap["category"] = $category->Url;
-    $FirstTag = $article->FirstTag;
-    $arrMap["tag"] = $FirstTag->Url;
+    if (!empty($article->Tag)) {
+      $FirstTag = $article->FirstTag;
+      $arrMap["tag"] = $FirstTag->Url;
+    }
   } else {
     $arrMap["page"] = $article->Url;
   }
